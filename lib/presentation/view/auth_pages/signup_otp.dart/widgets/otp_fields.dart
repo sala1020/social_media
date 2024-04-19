@@ -4,7 +4,7 @@ import 'package:social_media/presentation/view/auth_pages/common_widget/inputfie
 import 'package:social_media/presentation/view/auth_pages/a_text_controllers/controllers.dart';
 
 class OtpFields extends StatelessWidget {
-  const OtpFields({
+  const   OtpFields({
     super.key,
   });
 

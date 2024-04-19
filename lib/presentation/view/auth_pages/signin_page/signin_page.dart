@@ -27,12 +27,12 @@ class SignIn extends StatelessWidget {
               duration: 1000.ms,
             )
           ],
-          child: const SingleChildScrollView(
+          child:  SingleChildScrollView(
             child: Column(
               children: [
-                SectionSignIn1(),
+                const SectionSignIn1(),
                 SectionSignIn2(),
-                Suggestions(
+                const Suggestions(
                   tailText: 'SignUp',
                   mainText: "Don't have an account?",
                   page: SignUpPage(),

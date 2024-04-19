@@ -4,3 +4,4 @@ part of 's_ign_in_page_bloc.dart';
 sealed class SIgnInPageState {}
 
 final class SIgnInPageInitial extends SIgnInPageState {}
+final class SignInDataState extends SIgnInPageState{}

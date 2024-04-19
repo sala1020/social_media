@@ -36,7 +36,7 @@ class AuthService {
 
   //signup otp verification
 
-  static Future<void> otpVerification(
+  static Future<bool> otpVerification(
       {required String token, required String otp}) async {
     final String url = "${Endpoints.baseUrl}${Endpoints.varifyOtp}";
     print(token);
@@ -54,11 +54,74 @@ class AuthService {
       print(respose.statusCode);
       if (respose.statusCode == 200) {
         print('successfully verifies');
+        return true;
       } else {
-        print('error occured');
+        return false;
       }
     } catch (e) {
-      print(e);
+      throw Exception();
+    }
+  }
+
+  //signin
+
+  static Future<bool> signIn(
+      {required String email, required String password}) async {
+    final String url = "${Endpoints.baseUrl}${Endpoints.signIn}";
+
+    final body = {"email": email, "password": password};
+
+    final response = await http.post(Uri.parse(url),
+        headers: Endpoints.header, body: jsonEncode(body));
+    print(response.statusCode);
+    if (response.statusCode == 200) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+  //forgotPassword
+
+  static Future<String> verifyEmail({required String email}) async {
+    final String url = "${Endpoints.baseUrl}${Endpoints.forgotPassword}";
+    final body = {"email": email};
+    final response = await http.post(Uri.parse(url),
+        headers: Endpoints.header, body: jsonEncode(body));
+    if (response.statusCode == 200) {
+      final jsonBody = jsonDecode(response.body);
+      final token = jsonBody["after execution"]["token"];
+      print(token);
+      return token;
+    } else {
+      throw Exception();
+    }
+  }
+
+  //reset password
+  static Future<bool> resetPassword({
+    required String token,
+    required String otp,
+    required String newPassword,
+    required String confirmPassword,
+  }) async {
+    final String url = "${Endpoints.baseUrl}${Endpoints.resetPassword}";
+    final body = {
+      "otp": otp,
+      "password": newPassword,
+      "confirmpassword": confirmPassword,
+    };
+    var headers = {
+      "x-api-key": "apikey@ciao",
+      "Content-type": "application/json",
+      "x-temp-token": token
+    };
+    final response = await http.patch(Uri.parse(url),
+        headers: headers, body: jsonEncode(body));
+    print(response.statusCode);
+    if (response.statusCode == 200) {
+      return true;
+    } else {
+      return false;
     }
   }
 }

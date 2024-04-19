@@ -6,6 +6,7 @@ import 'package:social_media/presentation/utils/size/heights.dart';
 import 'package:social_media/presentation/view/auth_pages/a_text_controllers/controllers.dart';
 import 'package:social_media/presentation/view/auth_pages/common_widget/button.dart';
 import 'package:social_media/presentation/view/auth_pages/common_widget/inputfield.dart';
+import 'package:social_media/presentation/view/auth_pages/reg_exp/regexp.dart';
 import 'package:social_media/presentation/view/auth_pages/signup_page/bloc/sign_up_page_bloc.dart';
 
 class InputFields extends StatelessWidget {
@@ -23,29 +24,40 @@ class InputFields extends StatelessWidget {
             child: Column(
               children: [
                 InputFieldAuth(
-                    hintText: 'Name', controller: Controllers.nameController),
+                  hintText: 'Name',
+                  controller: Controllers.nameController,
+                ),
                 kHeight5,
                 InputFieldAuth(
                   hintText: 'Username',
                   controller: Controllers.usernameController,
+                  regx: RegExpp.nameValidator,
+                  validateMessage: 'should contain 4 character',
                 ),
                 kHeight10,
                 InputFieldAuth(
                   hintText: 'Email Address',
                   controller: Controllers.emailController,
+                  regx: RegExpp.emailValidator,
+                  validateMessage: 'enter a valid mail',
                 ),
                 kHeight5,
                 InputFieldAuth(
                   hintText: 'Password',
                   controller: Controllers.passwordController,
                   isPassword: true,
-
+                  regx: RegExpp.passwordValidator,
+                  validateMessage:
+                      'Pasword must contain 8 letters and a special character',
                 ),
                 kHeight10,
                 InputFieldAuth(
                   hintText: 'ConfirmPassword',
                   controller: Controllers.confirmPasswordController,
                   isPassword: true,
+                  regx: RegExpp.passwordValidator,
+                  validateMessage:
+                      'Pasword must contain 8 letters and a special character',
                 ),
                 kHeight10,
               ],

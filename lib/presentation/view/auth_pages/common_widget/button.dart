@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:social_media/data/model/signup_user_model.dart';
 import 'package:social_media/presentation/utils/colors/colors.dart';
 import 'package:social_media/presentation/utils/fonts/fonts.dart';
 

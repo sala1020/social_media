@@ -37,10 +37,14 @@ class SignUpOtpPage extends StatelessWidget {
               ontap: () {
                 if (formkey.currentState!.validate()) {
                   context.read<SignupOtpBloc>().add(VerifyOtpEvent(
-                        otp:
-                            '${Controllers.firstFieldController}${Controllers.secondFieldController}${Controllers.thirdFieldController}${Controllers.fourthFieldController}',
-                        token: token,
-                      ));
+                      otp:
+                          '${Controllers.firstFieldController.text}${Controllers.secondFieldController.text}${Controllers.thirdFieldController.text}${Controllers.fourthFieldController.text}',
+                      token: token,
+                      context: context));
+
+                  print(
+                    '${Controllers.firstFieldController}${Controllers.secondFieldController}${Controllers.thirdFieldController}${Controllers.fourthFieldController}',
+                  );
                 }
               },
             )

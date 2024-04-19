@@ -14,6 +14,9 @@ class InputFieldAuth extends StatelessWidget {
   final TextInputType? inputType;
   final TextEditingController controller;
   final bool? isotp;
+  final RegExp? regx;
+  final String? emptyMessage;
+  final String? validateMessage;
 
   const InputFieldAuth({
     super.key,
@@ -25,8 +28,10 @@ class InputFieldAuth extends StatelessWidget {
     this.inputType,
     required this.controller,
     this.isotp = false,
+    this.regx,
+    this.emptyMessage,
+    this.validateMessage,
   });
-  RegExp get emailRegExp => RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$');
 
   @override
   Widget build(BuildContext context) {
@@ -44,6 +49,7 @@ class InputFieldAuth extends StatelessWidget {
             obscureText = state.obscureTextEmit;
           }
           return TextFormField(
+              autovalidateMode: AutovalidateMode.onUserInteraction,
               controller: controller,
               keyboardType: inputType ?? TextInputType.emailAddress,
               textAlign: textAlign ?? TextAlign.start,
@@ -52,7 +58,9 @@ class InputFieldAuth extends StatelessWidget {
               style: const TextStyle(color: kWhite, fontSize: 20),
               validator: (value) {
                 if (value!.isEmpty) {
-                  return 'enter a value';
+                  return "This Field is Empty";
+                } else if (regx != null && !regx!.hasMatch(value)) {
+                  return validateMessage;
                 }
 
                 return null;
@@ -67,6 +75,8 @@ class InputFieldAuth extends StatelessWidget {
                 }
               },
               decoration: InputDecoration(
+                errorStyle: TextStyle(
+                    fontSize: 12, color: Color.fromARGB(255, 255, 0, 0)),
                 suffixIcon: isPassword!
                     ? IconButton(
                         onPressed: () {
