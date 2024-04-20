@@ -45,6 +45,7 @@ class SignUpOtpPage extends StatelessWidget {
                   print(
                     '${Controllers.firstFieldController}${Controllers.secondFieldController}${Controllers.thirdFieldController}${Controllers.fourthFieldController}',
                   );
+                   formkey.currentState!.reset();
                 }
               },
             )

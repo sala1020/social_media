@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:social_media/presentation/utils/colors/colors.dart';
+import 'package:social_media/presentation/utils/functions/navigation.dart';
 import 'package:social_media/presentation/utils/size/heights.dart';
 import 'package:social_media/presentation/view/auth_pages/a_text_controllers/controllers.dart';
 import 'package:social_media/presentation/view/auth_pages/common_widget/button.dart';
@@ -54,9 +55,7 @@ class SectionSignIn2 extends StatelessWidget {
               alignment: Alignment.centerRight,
               child: TextButton(
                 onPressed: () {
-                  Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) => ForgotPassword(),
-                  ));
+                 kPushNavigation(context: context, page: ForgotPassword());
                 },
                 child: Text(
                   'Forgot Password?',
@@ -77,8 +76,9 @@ class SectionSignIn2 extends StatelessWidget {
                           password: Controllers.passwordController.text,
                           context: context),
                     );
+                     formKey.currentState!.reset();
               }
-              ;
+              
             },
           )
         ],

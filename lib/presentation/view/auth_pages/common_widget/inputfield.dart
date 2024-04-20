@@ -57,10 +57,12 @@ class InputFieldAuth extends StatelessWidget {
               obscureText: isPassword! ? obscureText : isPassword!,
               style: const TextStyle(color: kWhite, fontSize: 20),
               validator: (value) {
-                if (value!.isEmpty) {
-                  return "This Field is Empty";
-                } else if (regx != null && !regx!.hasMatch(value)) {
-                  return validateMessage;
+                if (isotp == false) {
+                  if (value!.isEmpty) {
+                    return "This Field is Empty";
+                  } else if (regx != null && !regx!.hasMatch(value)) {
+                    return validateMessage;
+                  }
                 }
 
                 return null;
@@ -75,7 +77,7 @@ class InputFieldAuth extends StatelessWidget {
                 }
               },
               decoration: InputDecoration(
-                errorStyle: TextStyle(
+                errorStyle: const TextStyle(
                     fontSize: 12, color: Color.fromARGB(255, 255, 0, 0)),
                 suffixIcon: isPassword!
                     ? IconButton(

@@ -18,6 +18,7 @@ class ForgotPasswordBloc
             context: event.context,
             page: ResetPassword(token: token));
       }
+      event.formKey.currentState!.reset();
     });
   }
 }

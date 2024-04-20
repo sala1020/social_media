@@ -53,8 +53,10 @@ class ForgotPassword extends StatelessWidget {
               ontap: () {
                 if (formKey.currentState!.validate()) {
                   context.read<ForgotPasswordBloc>().add(ValidateEmailEvent(
+                    formKey: formKey,
                       context: context,
                       email: Controllers.emailController.text));
+                
                 }
               },
             )

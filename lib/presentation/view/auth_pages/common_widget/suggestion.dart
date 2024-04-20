@@ -4,8 +4,6 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:social_media/presentation/utils/colors/colors.dart';
 import 'package:social_media/presentation/utils/fonts/fonts.dart';
 import 'package:social_media/presentation/utils/functions/navigation.dart';
-import 'package:social_media/presentation/view/auth_pages/signin_page/signin_page.dart';
-import 'package:social_media/presentation/view/auth_pages/signup_page/signup_page.dart';
 
 class Suggestion extends StatelessWidget {
   final String maintext;

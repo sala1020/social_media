@@ -1,5 +1,3 @@
-import 'dart:isolate';
-
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:social_media/data/model/signup_user_model.dart';

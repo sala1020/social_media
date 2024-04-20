@@ -83,6 +83,8 @@ class InputFields extends StatelessWidget {
                         ),
                       ),
                     );
+                      formkey.currentState!.reset();
+                    
               }
             },
           )

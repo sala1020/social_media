@@ -7,7 +7,7 @@ const kGrey = Color.fromARGB(255, 195, 195, 195);
 
 const bg = LinearGradient(
     colors: [
-      Color.fromARGB(182, 254, 10, 10),
+      Color.fromARGB(255, 255, 1, 1),
       Color(0xFF111010),
     ],
     begin: Alignment.topCenter,

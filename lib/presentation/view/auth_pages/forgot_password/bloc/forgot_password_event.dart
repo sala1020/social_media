@@ -6,6 +6,7 @@ sealed class ForgotPasswordEvent {}
 final class ValidateEmailEvent extends ForgotPasswordEvent {
   final String email;
   final BuildContext context;
+  final GlobalKey<FormState> formKey;
 
-  ValidateEmailEvent({required this.email,required this.context, });
+  ValidateEmailEvent({required this.email,required this.context,required this.formKey,  });
 }
