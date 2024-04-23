@@ -20,6 +20,7 @@ class Suggestions extends StatelessWidget {
         const Divider(
           endIndent: 80,
           indent: 80,
+          color: Colors.black45,
         ),
         const GoogleAuth()
       ],

@@ -36,26 +36,21 @@ class InputFieldAuth extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     bool obscureText = isPassword ?? false;
-    return Container(
-      height: height ?? 66,
-      width: width ?? 300,
-      decoration: BoxDecoration(
-        gradient: kInputFIeld,
-        borderRadius: BorderRadius.circular(16),
-      ),
-      child: BlocBuilder<SignUpPageBloc, SignUpPageState>(
-        builder: (context, state) {
-          if (state is PasswordVisibilityState) {
-            obscureText = state.obscureTextEmit;
-          }
-          return TextFormField(
+    return BlocBuilder<SignUpPageBloc, SignUpPageState>(
+      builder: (context, state) {
+        if (state is PasswordVisibilityState) {
+          obscureText = state.obscureTextEmit;
+        }
+        return Padding(
+          padding: const EdgeInsets.only(right: 40, left: 40),
+          child: TextFormField(
               autovalidateMode: AutovalidateMode.onUserInteraction,
               controller: controller,
               keyboardType: inputType ?? TextInputType.emailAddress,
               textAlign: textAlign ?? TextAlign.start,
               cursorColor: kWhite,
               obscureText: isPassword! ? obscureText : isPassword!,
-              style: const TextStyle(color: kWhite, fontSize: 20),
+              style: GoogleFonts.reemKufi(color: kBlack, fontSize: 22),
               validator: (value) {
                 if (isotp == false) {
                   if (value!.isEmpty) {
@@ -77,8 +72,12 @@ class InputFieldAuth extends StatelessWidget {
                 }
               },
               decoration: InputDecoration(
+                filled: true,
+                fillColor: Color.fromARGB(77, 27, 27, 27),
                 errorStyle: const TextStyle(
-                    fontSize: 12, color: Color.fromARGB(255, 255, 0, 0)),
+                  fontSize: 10,
+                  color: Color.fromARGB(255, 255, 0, 0),
+                ),
                 suffixIcon: isPassword!
                     ? IconButton(
                         onPressed: () {
@@ -94,17 +93,19 @@ class InputFieldAuth extends StatelessWidget {
                       )
                     : null,
                 hintText: hintText,
-                hintStyle: GoogleFonts.inter(fontSize: 15, color: kGrey),
-                border: const OutlineInputBorder(borderSide: BorderSide.none),
+                hintStyle: GoogleFonts.inter(fontSize: 17, color: kBlack),
+                border: OutlineInputBorder(
+                    borderSide: BorderSide.none,
+                    borderRadius: BorderRadius.circular(8)),
               ),
               inputFormatters: textAlign != null
                   ? [
                       LengthLimitingTextInputFormatter(1),
                       FilteringTextInputFormatter.digitsOnly,
                     ]
-                  : []);
-        },
-      ),
+                  : []),
+        );
+      },
     );
   }
 }

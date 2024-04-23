@@ -13,11 +13,11 @@ class SignIn extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      resizeToAvoidBottomInset: false,
+      // resizeToAvoidBottomInset: false,
       body: Container(
         height: double.infinity,
         width: double.infinity,
-        decoration: const BoxDecoration(gradient: bg),
+        decoration: const BoxDecoration(color: kBg),
         child: Animate(
           effects: [
             FadeEffect(

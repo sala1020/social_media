@@ -15,7 +15,7 @@ class SignUpPage extends StatelessWidget {
     return Scaffold(
       // resizeToAvoidBottomInset: false,
       body: Container(
-        decoration: const BoxDecoration(gradient: bg),
+        decoration: const BoxDecoration(color: kBg),
         width: double.infinity,
         height: double.infinity,
         child: SingleChildScrollView(

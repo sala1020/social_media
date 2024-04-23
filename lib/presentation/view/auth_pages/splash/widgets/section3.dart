@@ -30,7 +30,7 @@ class Section3 extends StatelessWidget {
             style: GoogleFonts.inter(
                 fontSize: 12,
                 fontWeight: FontWeight.bold,
-                color: const Color.fromARGB(175, 255, 255, 255)),
+                color: Color.fromARGB(255, 0, 0, 0)),
           ),
           const SplashPageButton(
             buttonName: 'SIGN UP',

@@ -17,7 +17,7 @@ class SectionSignIn1 extends StatelessWidget {
       width: double.infinity,
       child: const Heading(
         heading:'Welcome\nBack Buddy' ,
-        imageUrl: 'assets/signin/picture2.png',
+        imageUrl: 'assets/og.png',
       ),
     );
   }

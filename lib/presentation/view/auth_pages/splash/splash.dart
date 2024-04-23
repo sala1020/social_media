@@ -14,7 +14,9 @@ class Splash extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        decoration: const BoxDecoration(gradient: bg),
+        height: double.infinity,
+        width: double.infinity,
+        decoration: const BoxDecoration(color: Color(0xffC2D8D3)),
         child: Animate(
           effects: [
             FadeEffect(

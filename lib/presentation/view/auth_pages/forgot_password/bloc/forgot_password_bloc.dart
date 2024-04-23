@@ -1,3 +1,5 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:social_media/data/services/auth_services/auth_service.dart';
@@ -14,9 +16,7 @@ class ForgotPasswordBloc
       final token = await AuthService.verifyEmail(email: event.email);
       if (token.isNotEmpty) {
         kPushNavigation(
-            // ignore: use_build_context_synchronously
-            context: event.context,
-            page: ResetPassword(token: token));
+            context: event.context, page: ResetPassword(token: token));
       }
       event.formKey.currentState!.reset();
     });

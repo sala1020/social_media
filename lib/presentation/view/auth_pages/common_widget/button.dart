@@ -26,7 +26,7 @@ class Button extends StatelessWidget {
         height: height,
         width: width,
         decoration: BoxDecoration(
-          gradient: kButtonBg,
+          color: kBlack,
           borderRadius: BorderRadius.circular(26),
         ),
         child: Center(

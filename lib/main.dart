@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 import 'package:social_media/presentation/view/auth_pages/forgot_password/bloc/forgot_password_bloc.dart';
 import 'package:social_media/presentation/view/auth_pages/forgot_password/reset_passord/bloc/reset_password_bloc.dart';
 import 'package:social_media/presentation/view/auth_pages/signin_page/bloc/s_ign_in_page_bloc.dart';
@@ -8,7 +9,9 @@ import 'package:social_media/presentation/view/auth_pages/signup_otp.dart/bloc/s
 import 'package:social_media/presentation/view/auth_pages/signup_page/bloc/sign_up_page_bloc.dart';
 
 import 'package:social_media/presentation/view/auth_pages/splash/splash.dart';
-import 'package:social_media/presentation/view/home/bottomnav/cubit/cubit.dart';
+import 'package:social_media/presentation/view/ineracting_pages/bottomnav/cubit/cubit.dart';
+
+final GoogleSignIn googleSignIn = GoogleSignIn();
 
 void main() {
   runApp(const MyApp());
@@ -26,7 +29,7 @@ class MyApp extends StatelessWidget {
         BlocProvider(create: (context) => NavIndex()),
         BlocProvider(create: (context) => SIgnInPageBloc()),
         BlocProvider(create: (context) => ForgotPasswordBloc()),
-        BlocProvider(create: (context) => ResetPasswordBloc())
+        BlocProvider(create: (context) => ResetPasswordBloc()),
       ],
       child: MaterialApp(
         title: 'Flutter Demo',

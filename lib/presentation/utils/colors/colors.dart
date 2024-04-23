@@ -5,32 +5,11 @@ const kWhite = Colors.white;
 const kBlack = Colors.black;
 const kGrey = Color.fromARGB(255, 195, 195, 195);
 
-const bg = LinearGradient(
-    colors: [
-      Color.fromARGB(255, 255, 1, 1),
-      Color(0xFF111010),
-    ],
-    begin: Alignment.topCenter,
-    end: Alignment.bottomCenter,
-    stops: [0.2, 0.8]);
+const kBg = Color(0xffC2D8D3);
 
-const kButtonBg = LinearGradient(
-    colors: [
-      Color.fromARGB(159, 137, 2, 2),
-      Color(0xFF250B0B),
-    ],
-    begin: Alignment.topCenter,
-    end: Alignment.bottomCenter,
-    stops: [0.2, 0.8]);
 
-const kInputFIeld = LinearGradient(
-    colors: [
-      Color.fromARGB(127, 0, 0, 0),
-      Color(0xFF060606),
-    ],
-    begin: Alignment.topCenter,
-    end: Alignment.bottomCenter,
-    stops: [0.2, 0.9]);
+
+
 
 //textColor
 

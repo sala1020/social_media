@@ -3,22 +3,19 @@ import 'package:social_media/presentation/view/auth_pages/common_widget/title.da
 import 'package:social_media/presentation/view/auth_pages/common_widget/title_image.dart';
 
 class Heading extends StatelessWidget {
-    final String heading;
+  final String heading;
   final String imageUrl;
   const Heading({
     super.key,
-        required this.heading,
+    required this.heading,
     required this.imageUrl,
   });
 
   @override
   Widget build(BuildContext context) {
-    return  Row(
+    return Row(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-      children: [
-        MainTitle(heading: heading),
-        TitleImage(imageUrl: imageUrl)
-      ],
+      children: [MainTitle(heading: heading), TitleImage(imageUrl: imageUrl)],
     );
   }
 }

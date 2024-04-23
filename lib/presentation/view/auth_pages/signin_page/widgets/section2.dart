@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:social_media/presentation/utils/colors/colors.dart';
@@ -49,17 +50,19 @@ class SectionSignIn2 extends StatelessWidget {
                   ),
                 ],
               )),
-          Padding(
-            padding: const EdgeInsets.only(right: 50),
-            child: Align(
-              alignment: Alignment.centerRight,
-              child: TextButton(
-                onPressed: () {
-                 kPushNavigation(context: context, page: ForgotPassword());
-                },
-                child: Text(
-                  'Forgot Password?',
-                  style: GoogleFonts.inter(color: kGrey, fontSize: 14),
+          Expanded(
+            child: Padding(
+              padding: const EdgeInsets.only(right: 50),
+              child: Align(
+                alignment: Alignment.centerRight,
+                child: TextButton(
+                  onPressed: () {
+                   kPushNavigation(context: context, page: ForgotPassword());
+                  },
+                  child: Text(
+                    'Forgot Password?',
+                    style: GoogleFonts.inter(color: kBlack, fontSize: 14),
+                  ),
                 ),
               ),
             ),

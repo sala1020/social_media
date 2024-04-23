@@ -18,7 +18,7 @@ class ForgotPassword extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        decoration: const BoxDecoration(gradient: bg),
+        decoration: const BoxDecoration(color: kBg),
         width: double.infinity,
         height: double.infinity,
         child: Column(
@@ -53,10 +53,9 @@ class ForgotPassword extends StatelessWidget {
               ontap: () {
                 if (formKey.currentState!.validate()) {
                   context.read<ForgotPasswordBloc>().add(ValidateEmailEvent(
-                    formKey: formKey,
+                      formKey: formKey,
                       context: context,
                       email: Controllers.emailController.text));
-                
                 }
               },
             )

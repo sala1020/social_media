@@ -24,7 +24,7 @@ class SplashPageButton extends StatelessWidget {
         height: height,
         width: 255,
         decoration: BoxDecoration(
-          gradient: kButtonBg,
+          color: kBlack,
           borderRadius: BorderRadius.circular(26),
         ),
         child: Center(

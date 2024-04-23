@@ -17,7 +17,7 @@ class SignUpOtpPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        decoration: const BoxDecoration(gradient: bg),
+        decoration: const BoxDecoration(color: kBg),
         width: double.infinity,
         height: double.infinity,
         child: Column(
@@ -28,7 +28,7 @@ class SignUpOtpPage extends StatelessWidget {
             Text('We have sent you a verification code to\nyour email address',
                 style: kInfoFont),
             kHeight15,
-            Form(key: formkey, child: const OtpFields()),
+            Form(key: formkey, child:  OtpFields()),
             kHeight30,
             Button(
               buttonName: 'Submit',
@@ -45,7 +45,7 @@ class SignUpOtpPage extends StatelessWidget {
                   print(
                     '${Controllers.firstFieldController}${Controllers.secondFieldController}${Controllers.thirdFieldController}${Controllers.fourthFieldController}',
                   );
-                   formkey.currentState!.reset();
+                  formkey.currentState!.reset();
                 }
               },
             )

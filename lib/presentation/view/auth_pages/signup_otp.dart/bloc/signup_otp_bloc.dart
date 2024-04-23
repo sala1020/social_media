@@ -2,7 +2,7 @@ import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:social_media/data/services/auth_services/auth_service.dart';
 import 'package:social_media/presentation/utils/functions/navigation.dart';
-import 'package:social_media/presentation/view/home/bottomnav/bottom_nav.dart';
+import 'package:social_media/presentation/view/ineracting_pages/bottomnav/bottom_nav.dart';
 
 part 'signup_otp_event.dart';
 part 'signup_otp_state.dart';

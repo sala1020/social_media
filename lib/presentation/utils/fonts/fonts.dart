@@ -4,10 +4,10 @@ import 'package:social_media/presentation/utils/colors/colors.dart';
 
 final kTitleFont = GoogleFonts.rubikBubbles(fontSize: 50);
 final kSplashButton = GoogleFonts.robotoSlab(color: kWhite, fontSize: 25);
-final kAuthFont = GoogleFonts.irishGrover(color: kWhite, fontSize: 31);
+final kAuthFont = GoogleFonts.irishGrover(color: kBlack, fontSize: 31);
 final ksuggestion =
-    GoogleFonts.inter(color: const Color.fromARGB(255, 218, 218, 218), fontSize: 14, fontWeight: FontWeight.w400);
+    GoogleFonts.inter(color: Color.fromARGB(255, 33, 33, 33), fontSize: 14, fontWeight: FontWeight.w600);
 final kInfoFont= GoogleFonts.josefinSans(
                 fontSize: 18,
-                color: kWhite,
+                color: kBlack,
               );

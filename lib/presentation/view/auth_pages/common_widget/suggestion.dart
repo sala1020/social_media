@@ -29,7 +29,7 @@ class Suggestion extends StatelessWidget {
           child: Text(
             tailText,
             style: GoogleFonts.inter(
-                color: kWhite, fontWeight: FontWeight.bold),
+                color: kBlack, fontWeight: FontWeight.bold),
           ),
         )
       ],
