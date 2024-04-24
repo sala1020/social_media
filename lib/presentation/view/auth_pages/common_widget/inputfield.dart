@@ -73,7 +73,8 @@ class InputFieldAuth extends StatelessWidget {
               },
               decoration: InputDecoration(
                 filled: true,
-                fillColor: Color.fromARGB(77, 27, 27, 27),
+                // fillColor: Color.fromARGB(77, 27, 27, 27),
+                fillColor: Color(0x4D1B1B1B),
                 errorStyle: const TextStyle(
                   fontSize: 10,
                   color: Color.fromARGB(255, 255, 0, 0),
