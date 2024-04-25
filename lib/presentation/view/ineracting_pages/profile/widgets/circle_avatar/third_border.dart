@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:insta_image_viewer/insta_image_viewer.dart';
 import 'package:social_media/presentation/utils/colors/colors.dart';
 
 class ThirdBorderCircleAvatar extends StatelessWidget {

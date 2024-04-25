@@ -48,10 +48,11 @@ class Post extends StatelessWidget {
       padding: const EdgeInsets.only(left: 20, right: 20),
       child: GridView.builder(
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisSpacing: 2,
-            mainAxisSpacing: 2,
-            crossAxisCount: 3,
-            childAspectRatio: 19 / 19),
+          crossAxisSpacing: 2,
+          mainAxisSpacing: 2,
+          crossAxisCount: 3,
+          childAspectRatio: 19 / 19,
+        ),
         itemBuilder: (context, index) {
           return Container(
             decoration: const BoxDecoration(
