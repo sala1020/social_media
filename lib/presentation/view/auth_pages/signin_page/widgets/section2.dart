@@ -21,8 +21,7 @@ class SectionSignIn2 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      // color: const Color.fromARGB(43, 255, 193, 7),
-      height: 260,
+      height: 230,
       width: double.infinity,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -46,7 +45,8 @@ class SectionSignIn2 extends StatelessWidget {
                     controller: Controllers.passwordController,
                     regx: RegExpp.passwordValidator,
                     emptyMessage: 'This field is empty',
-                    validateMessage: 'Pasword must contain 8 letters and a special character',
+                    validateMessage:
+                        'Pasword must contain 8 letters and a special character',
                   ),
                 ],
               )),
@@ -57,7 +57,7 @@ class SectionSignIn2 extends StatelessWidget {
                 alignment: Alignment.centerRight,
                 child: TextButton(
                   onPressed: () {
-                   kPushNavigation(context: context, page: ForgotPassword());
+                    kPushNavigation(context: context, page: ForgotPassword());
                   },
                   child: Text(
                     'Forgot Password?',
@@ -79,9 +79,8 @@ class SectionSignIn2 extends StatelessWidget {
                           password: Controllers.passwordController.text,
                           context: context),
                     );
-                     formKey.currentState!.reset();
+                formKey.currentState!.reset();
               }
-              
             },
           )
         ],

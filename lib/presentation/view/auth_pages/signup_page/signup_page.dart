@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:social_media/presentation/utils/colors/colors.dart';
+import 'package:social_media/presentation/utils/size/heights.dart';
 
 import 'package:social_media/presentation/view/auth_pages/common_widget/heading.dart';
 import 'package:social_media/presentation/view/auth_pages/common_widget/suggestions.dart';
@@ -22,12 +23,15 @@ class SignUpPage extends StatelessWidget {
           child: Column(
             children: [
               const SizedBox(
-                height: 250,
+                height: 220,
                 width: double.infinity,
-                child: Heading(
-                    heading: 'Bunny\nWelcomes You', imageUrl: 'assets/og.png'),
+                child: Align(
+                  child: Heading(heading: 'Bunny\nWelcomes You'),
+                ),
               ),
+              kHeight10,
               InputFields(),
+              kHeight10,
               const Suggestions(
                 tailText: 'SignIn',
                 mainText: "Already have an account?",

@@ -7,9 +7,9 @@ class OtpField extends StatelessWidget {
   final TextEditingController controller;
 
   const OtpField({
-    Key? key,
+    super.key,
     required this.controller,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

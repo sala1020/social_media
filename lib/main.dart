@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:social_media/data/shared_preference/shared_preference.dart';
+import 'package:social_media/presentation/utils/colors/colors.dart';
 import 'package:social_media/presentation/view/auth_pages/forgot_password/bloc/forgot_password_bloc.dart';
 import 'package:social_media/presentation/view/auth_pages/forgot_password/reset_passord/bloc/reset_password_bloc.dart';
 import 'package:social_media/presentation/view/auth_pages/signin_page/bloc/s_ign_in_page_bloc.dart';
@@ -9,16 +11,22 @@ import 'package:social_media/presentation/view/auth_pages/signup_otp.dart/bloc/s
 import 'package:social_media/presentation/view/auth_pages/signup_page/bloc/sign_up_page_bloc.dart';
 
 import 'package:social_media/presentation/view/auth_pages/splash/splash.dart';
+import 'package:social_media/presentation/view/ineracting_pages/bottomnav/bottom_nav.dart';
 import 'package:social_media/presentation/view/ineracting_pages/bottomnav/cubit/cubit.dart';
+
 
 final GoogleSignIn googleSignIn = GoogleSignIn();
 
-void main() {
-  runApp(const MyApp());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  runApp(MyApp(
+    isLoggedIn: await SharedPreferencesHelper.isLoggedIn() ?? false,
+  ));
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+ final bool isLoggedIn;
+  MyApp({super.key, required this.isLoggedIn});
 
   @override
   Widget build(BuildContext context) {
@@ -36,11 +44,10 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
           colorScheme: ColorScheme.fromSeed(
-            seedColor: const Color.fromARGB(255, 255, 255, 255),
-          ),
+              seedColor: const Color.fromARGB(255, 0, 0, 0), background: kBg),
           useMaterial3: true,
         ),
-        home: const Splash(),
+        home: isLoggedIn ? BottomNav() : const Splash(),
       ),
     );
   }

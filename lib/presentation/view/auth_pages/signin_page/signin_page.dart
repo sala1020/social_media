@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:social_media/presentation/utils/colors/colors.dart';
+import 'package:social_media/presentation/utils/size/heights.dart';
 import 'package:social_media/presentation/view/auth_pages/signin_page/widgets/header.dart';
 
 import 'package:social_media/presentation/view/auth_pages/signin_page/widgets/section2.dart';
@@ -27,7 +28,7 @@ class SignIn extends StatelessWidget {
               duration: 1000.ms,
             )
           ],
-          child:  SingleChildScrollView(
+          child: SingleChildScrollView(
             child: Column(
               children: [
                 const SectionSignIn1(),

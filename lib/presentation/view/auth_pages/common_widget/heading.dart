@@ -4,18 +4,14 @@ import 'package:social_media/presentation/view/auth_pages/common_widget/title_im
 
 class Heading extends StatelessWidget {
   final String heading;
-  final String imageUrl;
+
   const Heading({
     super.key,
     required this.heading,
-    required this.imageUrl,
   });
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-      children: [MainTitle(heading: heading), TitleImage(imageUrl: imageUrl)],
-    );
+    return MainTitle(heading: heading);
   }
 }

@@ -14,8 +14,9 @@ class InputFields extends StatelessWidget {
   final formkey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: 420,
+    return Container(
+      // color: Colors.amber,
+      height: 440,
       width: double.infinity,
       child: Column(
         children: [
@@ -83,8 +84,7 @@ class InputFields extends StatelessWidget {
                         ),
                       ),
                     );
-                      formkey.currentState!.reset();
-                    
+                formkey.currentState!.reset();
               }
             },
           )

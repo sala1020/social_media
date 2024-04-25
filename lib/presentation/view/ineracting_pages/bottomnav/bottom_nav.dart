@@ -17,41 +17,51 @@ class BottomNav extends StatelessWidget {
     const Search(),
     const NewPost(),
     const Conversation(),
-    const Profile()
+     Profile()
   ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: CurvedNavigationBar(
-        buttonBackgroundColor: kBg,
-        backgroundColor: const Color.fromARGB(255, 255, 255, 255),
-        color: Colors.black,
-        items: const [
-          Icon(
-            Icons.home,
-            color: Colors.white,
+      bottomNavigationBar: ClipRRect(
+        borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(20), topRight: Radius.circular(20)),
+        child: SizedBox(
+          height: 82,
+          width: double.infinity,
+          child: CurvedNavigationBar(
+            height: 70,
+            buttonBackgroundColor: kBlack,
+            backgroundColor: Color.fromARGB(208, 0, 0, 0),
+            color: Color.fromARGB(0, 0, 0, 0),
+            items: const [
+
+              Icon(
+                Icons.home,
+                color: Colors.white,
+              ),
+              Icon(
+                Icons.search,
+                color: Colors.white,
+              ),
+              Icon(
+                Icons.create,
+                color: Colors.white,
+              ),
+              Icon(
+                Icons.chat,
+                color: Colors.white,
+              ),
+              Icon(
+                Icons.person,
+                color: Colors.white,
+              )
+            ],
+            onTap: (value) {
+              context.read<NavIndex>().updateIndex(value);
+            },
           ),
-          Icon(
-            Icons.search,
-            color: Colors.white,
-          ),
-          Icon(
-            Icons.create,
-            color: Colors.white,
-          ),
-          Icon(
-            Icons.chat,
-            color: Colors.white,
-          ),
-          Icon(
-            Icons.person,
-            color: Colors.white,
-          )
-        ],
-        onTap: (value) {
-          context.read<NavIndex>().updateIndex(value);
-        },
+        ),
       ),
       body: BlocBuilder<NavIndex, int>(
         builder: (context, selectedIndex) {

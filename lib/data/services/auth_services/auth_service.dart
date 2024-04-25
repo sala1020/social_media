@@ -1,6 +1,8 @@
 import 'dart:convert';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:social_media/data/model/signup_user_model.dart';
 import 'package:http/http.dart' as http;
+import 'package:social_media/data/shared_preference/shared_preference.dart';
 import 'package:social_media/presentation/utils/endpoints/endpoints.dart';
 
 class AuthService {
@@ -53,6 +55,7 @@ class AuthService {
           headers: headers, body: jsonEncode(body));
       print(respose.statusCode);
       if (respose.statusCode == 200) {
+        SharedPreferencesHelper.setLoggedIn(true);
         print('successfully verifies');
         return true;
       } else {
@@ -75,6 +78,7 @@ class AuthService {
         headers: Endpoints.header, body: jsonEncode(body));
     print(response.statusCode);
     if (response.statusCode == 200) {
+      SharedPreferencesHelper.setLoggedIn(true);
       return true;
     } else {
       return false;
