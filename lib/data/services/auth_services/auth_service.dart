@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'package:shared_preferences/shared_preferences.dart';
 import 'package:social_media/data/model/signup_user_model.dart';
 import 'package:http/http.dart' as http;
 import 'package:social_media/data/shared_preference/shared_preference.dart';
@@ -43,7 +42,7 @@ class AuthService {
     final String url = "${Endpoints.baseUrl}${Endpoints.varifyOtp}";
     print(token);
     var headers = {
-      "x-api-key": "apikey@ciao",
+      "x-api-key": Endpoints.apikey,
       "Content-type": "application/json",
       "x-temp-token": token
     };
@@ -115,7 +114,7 @@ class AuthService {
       "confirmpassword": confirmPassword,
     };
     var headers = {
-      "x-api-key": "apikey@ciao",
+      "x-api-key": Endpoints.apikey,
       "Content-type": "application/json",
       "x-temp-token": token
     };

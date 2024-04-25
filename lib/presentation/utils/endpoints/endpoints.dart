@@ -1,6 +1,8 @@
 class Endpoints {
+    static String apikey="apikey@ciao";
+
   static var header = {
-    "x-api-key": "apikey@ciao",
+    "x-api-key":apikey ,
     "Content-type": "application/json"
   };
   static String baseUrl = 'https://ciao.ashkar.tech';
