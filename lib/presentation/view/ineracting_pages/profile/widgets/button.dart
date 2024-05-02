@@ -3,13 +3,13 @@ import 'package:flutter/material.dart';
 import 'package:social_media/presentation/utils/colors/colors.dart';
 
 class NormalButton extends StatelessWidget {
-  final void Function()? onPressed;
+  final void Function()? onTap;
   final String buttonName;
   final double height;
   final double width;
   const NormalButton({
     super.key,
-    this.onPressed,
+    this.onTap,
     required this.buttonName,
     this.height = 50,
     this.width = 150,
@@ -18,7 +18,7 @@ class NormalButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: onPressed,
+      onTap: onTap,
       child: Container(
         height: height,
         width: width,
@@ -44,7 +44,7 @@ class ProfileButtons extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
+    return const Row(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
         NormalButton(

@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:social_media/presentation/utils/colors/colors.dart';
 import 'package:social_media/presentation/utils/fonts/fonts.dart';
 import 'package:social_media/presentation/utils/size/heights.dart';
-import 'package:social_media/presentation/view/auth_pages/a_text_controllers/controllers.dart';
+import 'package:social_media/presentation/utils/text_controllers/controllers.dart';
 import 'package:social_media/presentation/view/auth_pages/common_widget/button.dart';
 import 'package:social_media/presentation/view/auth_pages/common_widget/inputfield.dart';
 import 'package:social_media/presentation/view/auth_pages/common_widget/title.dart';
@@ -85,10 +84,6 @@ class ResetPassword extends StatelessWidget {
                                 Controllers.confirmPasswordController.text,
                           ),
                         );
-                    print(
-                        '${Controllers.confirmPasswordController.text}${Controllers.newpasswordController.text}');
-                    print(
-                        '${Controllers.firstFieldController.text}${Controllers.secondFieldController.text}${Controllers.thirdFieldController.text}${Controllers.fourthFieldController.text}');
                   }
                 },
               ),

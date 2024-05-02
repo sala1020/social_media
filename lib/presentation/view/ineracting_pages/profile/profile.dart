@@ -1,69 +1,90 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:social_media/data/model/post_model/post_model.dart';
 import 'package:social_media/presentation/utils/size/heights.dart';
+import 'package:social_media/presentation/view/ineracting_pages/create_post/bloc/create_post_bloc.dart';
+import 'package:social_media/presentation/view/ineracting_pages/profile/bloc/profile_bloc.dart';
 import 'package:social_media/presentation/view/ineracting_pages/profile/widgets/bio.dart';
 import 'package:social_media/presentation/view/ineracting_pages/profile/widgets/button.dart';
+import 'package:social_media/presentation/view/ineracting_pages/profile/widgets/post_widget.dart';
 import 'package:social_media/presentation/view/ineracting_pages/profile/widgets/section1.dart';
 
 class Profile extends StatelessWidget {
-  const Profile({super.key});
+  final List<PostModel> postDetails = [];
+
+  Profile({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const SafeArea(
-      child: Scaffold(
-        body: Column(
-          children: [
-            ProfileSection1(),
-            Bio(),
-            ProfileButtons(),
-            kHeight30,
-            Text(
-              'Post',
-              style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold),
-            ),
-            kHeight10,
-            Divider(
-              color: Colors.black,
-              endIndent: 20,
-              indent: 20,
-              thickness: 5,
-            ),
-            kHeight10,
-            Expanded(child: Post())
-          ],
-        ),
-      ),
-    );
-  }
-}
+    context.read<ProfileBloc>().add(FetchingProfileEvent());
+    context.read<CreatePostBloc>().add(FetchPostEvent());
 
-class Post extends StatelessWidget {
-  const Post({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(left: 20, right: 20),
-      child: GridView.builder(
-        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisSpacing: 2,
-          mainAxisSpacing: 2,
-          crossAxisCount: 3,
-          childAspectRatio: 19 / 19,
+    return SafeArea(
+        child: Scaffold(
+            body: MultiBlocListener(
+      listeners: [
+        BlocListener<ProfileBloc, ProfileState>(
+          listener: (context, state) {},
         ),
-        itemBuilder: (context, index) {
-          return Container(
-            decoration: const BoxDecoration(
-              image: DecorationImage(
-                image: AssetImage('assets/profile1.png'),
-              ),
-            ),
+        BlocListener<CreatePostBloc, CreatePostState>(
+          listener: (context, state) {},
+        ),
+      ],
+      child: BlocBuilder<ProfileBloc, ProfileState>(
+        builder: (context, state) {
+          if (state is LoadingProfileState) {
+            return const Center(
+              child: CircularProgressIndicator(),
+            );
+          }
+          if (state is FetchingProfileState) {
+            return Column(
+              children: [
+                ProfileSection1(
+                  details: state.userDetail,
+                ),
+                Bio(
+                  details: state.userDetail,
+                ),
+                const ProfileButtons(),
+                kHeight30,
+                const Text(
+                  'Post',
+                  style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold),
+                ),
+                kHeight10,
+                const Divider(
+                  color: Colors.black,
+                  endIndent: 20,
+                  indent: 20,
+                  thickness: 5,
+                ),
+                kHeight10,
+                BlocBuilder<CreatePostBloc, CreatePostState>(
+                  builder: (context, state) {
+                    if (state is LoadingState) {
+                      return const CircularProgressIndicator();
+                    }
+                    if (state is FetchPostState) {
+                      return Expanded(
+                        child: Post(
+                          post: state.details,
+                        ),
+                      );
+                    }
+                    return const Center(
+                      child: Text('Empty'),
+                    );
+                  },
+                )
+              ],
+            );
+          }
+          return const Center(
+            child: Text('Error Occured'),
           );
         },
-        itemCount: 3,
       ),
-    );
+    )));
   }
 }

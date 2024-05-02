@@ -14,4 +14,7 @@ class Controllers {
   static final secondFieldController = TextEditingController();
   static final thirdFieldController = TextEditingController();
   static final fourthFieldController = TextEditingController();
+
+  //caption
+  static final captionController=TextEditingController();
 }

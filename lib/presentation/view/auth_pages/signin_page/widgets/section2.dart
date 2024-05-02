@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:social_media/presentation/utils/colors/colors.dart';
 import 'package:social_media/presentation/utils/functions/navigation.dart';
 import 'package:social_media/presentation/utils/size/heights.dart';
-import 'package:social_media/presentation/view/auth_pages/a_text_controllers/controllers.dart';
+import 'package:social_media/presentation/utils/text_controllers/controllers.dart';
 import 'package:social_media/presentation/view/auth_pages/common_widget/button.dart';
 import 'package:social_media/presentation/view/auth_pages/common_widget/inputfield.dart';
 import 'package:social_media/presentation/view/auth_pages/forgot_password/forgot_passeord.dart';

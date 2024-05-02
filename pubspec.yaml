@@ -28,7 +28,7 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
-  bloc: ^8.1.4
+  cached_network_image: ^3.3.1
   cupertino_icons: ^1.0.8
   curved_nav_bar: ^0.0.2
   curved_navigation_bar: ^1.0.3
@@ -36,10 +36,13 @@ dependencies:
     sdk: flutter
   flutter_animate: ^4.5.0
   flutter_bloc: ^8.1.5
+  flutter_secure_storage: ^9.0.0
   google_fonts: ^6.2.1
   google_sign_in: ^6.2.1
   http: ^1.2.1
+  image_picker: ^1.1.0
   insta_image_viewer: ^1.0.4
+  like_button: ^2.0.5
   meta: ^1.11.0
   shared_preferences: ^2.2.3
 

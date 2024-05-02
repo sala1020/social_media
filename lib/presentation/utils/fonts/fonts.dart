@@ -16,4 +16,7 @@ final kInfoFont = GoogleFonts.josefinSans(
 );
 
 final kProfileCounts = GoogleFonts.niramit(
-    fontSize: 20, color: kBlack, fontWeight: FontWeight.bold);
+    fontSize: 20, color: kBlack, fontWeight: FontWeight.w400);
+    
+final kProfileName = GoogleFonts.niramit(
+    fontSize: 28, color: kBlack, fontWeight: FontWeight.bold);

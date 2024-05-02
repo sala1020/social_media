@@ -4,7 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:social_media/presentation/utils/colors/colors.dart';
 import 'package:social_media/presentation/utils/fonts/fonts.dart';
 import 'package:social_media/presentation/utils/size/heights.dart';
-import 'package:social_media/presentation/view/auth_pages/a_text_controllers/controllers.dart';
+import 'package:social_media/presentation/utils/text_controllers/controllers.dart';
 import 'package:social_media/presentation/view/auth_pages/common_widget/button.dart';
 import 'package:social_media/presentation/view/auth_pages/common_widget/inputfield.dart';
 import 'package:social_media/presentation/view/auth_pages/common_widget/title.dart';

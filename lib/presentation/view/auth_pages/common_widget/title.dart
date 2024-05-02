@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:social_media/presentation/utils/fonts/fonts.dart';
+import 'package:social_media/presentation/view/animation/custom_ticker.dart';
 
 class MainTitle extends StatelessWidget {
   const MainTitle({
@@ -12,10 +12,10 @@ class MainTitle extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final tickerProvider = _CustomTickerProvider();
+    final tickerProvider = CustomTickerProvider();
     final AnimationController animationController = AnimationController(
       vsync: tickerProvider,
-      duration: Duration(milliseconds: 700),
+      duration: const Duration(milliseconds: 700),
     )..repeat(reverse: true);
     return AnimatedBuilder(
       animation: animationController,
@@ -29,12 +29,5 @@ class MainTitle extends StatelessWidget {
             ));
       },
     );
-  }
-}
-
-class _CustomTickerProvider implements TickerProvider {
-  @override
-  Ticker createTicker(TickerCallback onTick) {
-    return Ticker(onTick);
   }
 }

@@ -16,7 +16,7 @@ class BottomNav extends StatelessWidget {
   final pages = [
     const HomePage(),
     const Search(),
-    const NewPost(),
+     NewPost(),
     const Conversation(),
      Profile()
   ];
@@ -25,7 +25,7 @@ class BottomNav extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       bottomNavigationBar: ClipRRect(
-        borderRadius: BorderRadius.only(
+        borderRadius: const BorderRadius.only(
             topLeft: Radius.circular(20), topRight: Radius.circular(20)),
         child: SizedBox(
           height: 82,
@@ -33,10 +33,9 @@ class BottomNav extends StatelessWidget {
           child: CurvedNavigationBar(
             height: 70,
             buttonBackgroundColor: kBlack,
-            backgroundColor: Color.fromARGB(208, 0, 0, 0),
-            color: Color.fromARGB(0, 0, 0, 0),
+            backgroundColor: const Color.fromARGB(208, 0, 0, 0),
+            color: const Color.fromARGB(0, 0, 0, 0),
             items: const [
-
               Icon(
                 Icons.home,
                 color: Colors.white,

@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:social_media/data/model/profile_model/profile_model.dart';
 import 'package:social_media/presentation/utils/colors/colors.dart';
 
 import 'package:social_media/presentation/view/ineracting_pages/profile/widgets/circle_avatar/circle_avatar.dart';
 
 class ProfileSection1 extends StatelessWidget {
+  final UserProfile details;
   const ProfileSection1({
     super.key,
+    required this.details,
   });
 
   @override
@@ -24,7 +27,9 @@ class ProfileSection1 extends StatelessWidget {
           left: BorderSide(color: kBlack, width: 2),
         ),
       ),
-      child: const CircleAvatarWidget(),
+      child: CircleAvatarWidget(
+        details: details,
+      ),
     );
   }
 }

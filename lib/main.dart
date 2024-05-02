@@ -13,6 +13,8 @@ import 'package:social_media/presentation/view/auth_pages/signup_page/bloc/sign_
 import 'package:social_media/presentation/view/auth_pages/splash/splash.dart';
 import 'package:social_media/presentation/view/ineracting_pages/bottomnav/bottom_nav.dart';
 import 'package:social_media/presentation/view/ineracting_pages/bottomnav/cubit/cubit.dart';
+import 'package:social_media/presentation/view/ineracting_pages/create_post/bloc/create_post_bloc.dart';
+import 'package:social_media/presentation/view/ineracting_pages/profile/bloc/profile_bloc.dart';
 
 
 final GoogleSignIn googleSignIn = GoogleSignIn();
@@ -26,7 +28,7 @@ void main() async {
 
 class MyApp extends StatelessWidget {
  final bool isLoggedIn;
-  MyApp({super.key, required this.isLoggedIn});
+  const MyApp({super.key, required this.isLoggedIn});
 
   @override
   Widget build(BuildContext context) {
@@ -38,6 +40,8 @@ class MyApp extends StatelessWidget {
         BlocProvider(create: (context) => SIgnInPageBloc()),
         BlocProvider(create: (context) => ForgotPasswordBloc()),
         BlocProvider(create: (context) => ResetPasswordBloc()),
+         BlocProvider(create: (context) => CreatePostBloc()),
+              BlocProvider(create: (context) =>ProfileBloc()),
       ],
       child: MaterialApp(
         title: 'Flutter Demo',

@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:social_media/presentation/utils/colors/colors.dart';
 import 'package:social_media/presentation/utils/fonts/fonts.dart';
 import 'package:social_media/presentation/utils/size/heights.dart';
-import 'package:social_media/presentation/view/auth_pages/a_text_controllers/controllers.dart';
+import 'package:social_media/presentation/utils/text_controllers/controllers.dart';
 import 'package:social_media/presentation/view/auth_pages/common_widget/button.dart';
 import 'package:social_media/presentation/view/auth_pages/common_widget/title.dart';
 import 'package:social_media/presentation/view/auth_pages/signup_otp.dart/bloc/signup_otp_bloc.dart';
@@ -28,7 +28,7 @@ class SignUpOtpPage extends StatelessWidget {
             Text('We have sent you a verification code to\nyour email address',
                 style: kInfoFont),
             kHeight15,
-            Form(key: formkey, child:  OtpFields()),
+            Form(key: formkey, child:  const OtpFields()),
             kHeight30,
             Button(
               buttonName: 'Submit',
@@ -42,9 +42,6 @@ class SignUpOtpPage extends StatelessWidget {
                       token: token,
                       context: context));
 
-                  print(
-                    '${Controllers.firstFieldController}${Controllers.secondFieldController}${Controllers.thirdFieldController}${Controllers.fourthFieldController}',
-                  );
                   formkey.currentState!.reset();
                 }
               },

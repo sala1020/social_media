@@ -9,14 +9,14 @@ class _CustomTickerProvider implements TickerProvider {
 }
 
 class Section2 extends StatelessWidget {
-  const Section2({Key? key}) : super(key: key);
+  const Section2({super.key});
 
   @override
   Widget build(BuildContext context) {
     final tickerProvider = _CustomTickerProvider();
     final AnimationController animationController = AnimationController(
       vsync: tickerProvider,
-      duration: Duration(milliseconds: 700),
+      duration: const Duration(milliseconds: 700),
     )..repeat(reverse: true);
 
     return SizedBox(

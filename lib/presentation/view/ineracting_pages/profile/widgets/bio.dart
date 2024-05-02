@@ -1,9 +1,11 @@
-  
 import 'package:flutter/material.dart';
+import 'package:social_media/data/model/profile_model/profile_model.dart';
 
 class Bio extends StatelessWidget {
+  final UserProfile details;
   const Bio({
     super.key,
+    required this.details,
   });
 
   @override
@@ -14,18 +16,18 @@ class Bio extends StatelessWidget {
           minHeight: 20,
           maxWidth: double.infinity,
           minWidth: double.infinity),
-      child: const Column(
+      child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Padding(
-            padding: EdgeInsets.only(top: 10, left: 40),
+            padding: const EdgeInsets.only(top: 10, left: 40),
             child: Text(
-              'Salahudheen',
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17),
+              details.username,
+              style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 17),
             ),
           ),
-          Padding(
+          const Padding(
             padding: EdgeInsets.only(top: 10, left: 40),
             child: Text(
               'Hi How Are You?\nNothing Special😉',

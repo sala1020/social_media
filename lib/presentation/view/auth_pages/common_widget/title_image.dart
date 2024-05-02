@@ -11,7 +11,7 @@ class _CustomTickerProvider implements TickerProvider {
 class TitleImage extends StatelessWidget {
   final double? height;
   final double? width;
-  TitleImage({
+  const TitleImage({
     super.key,
     required this.imageUrl,
     this.height,
@@ -25,7 +25,7 @@ class TitleImage extends StatelessWidget {
     final tickerProvider = _CustomTickerProvider();
     final AnimationController animationController = AnimationController(
       vsync: tickerProvider,
-      duration: Duration(milliseconds: 700),
+      duration: const Duration(milliseconds: 700),
     )..repeat(reverse: true);
     return AnimatedBuilder(
       animation: animationController,
