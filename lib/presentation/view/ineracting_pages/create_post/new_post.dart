@@ -16,6 +16,11 @@ class NewPost extends StatelessWidget {
       body: Center(
         child: BlocBuilder<CreatePostBloc, CreatePostState>(
           builder: (context, state) {
+            if (state is LoadingState) {
+              return const Center(
+                child: CircularProgressIndicator(),
+              );
+            }
             if (state is SelectImageState) {
               selectedMedia = state.imageUrl;
             }

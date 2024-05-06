@@ -20,6 +20,7 @@ class CreatePostBloc extends Bloc<CreatePostEvent, CreatePostState> {
     on<PutPostEvent>((event, emit) async {
       await PostService.uploadPost(
           media: event.mediaUrl, caption: event.caption);
+          emit(SelectImageState(imageUrl: ''));
       emit(LoadingState());
     });
     on<FetchPostEvent>((event, emit) async {

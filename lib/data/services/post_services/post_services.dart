@@ -18,6 +18,7 @@ class PostService {
       "x-access-token": accessToken,
     };
     final request = http.MultipartRequest('POST', Uri.parse(url));
+    
     try {
       request.headers.addAll(posteHeader);
       request.fields['caption'] = caption;

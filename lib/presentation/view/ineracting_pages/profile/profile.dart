@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:social_media/data/model/post_model/post_model.dart';
+import 'package:social_media/data/model/profile_model/profile_model.dart';
+import 'package:social_media/presentation/utils/shimmer/post_shimmer.dart';
+import 'package:social_media/presentation/utils/shimmer/profile_shimmer.dart';
 import 'package:social_media/presentation/utils/size/heights.dart';
 import 'package:social_media/presentation/view/ineracting_pages/create_post/bloc/create_post_bloc.dart';
 import 'package:social_media/presentation/view/ineracting_pages/profile/bloc/profile_bloc.dart';
@@ -11,6 +14,17 @@ import 'package:social_media/presentation/view/ineracting_pages/profile/widgets/
 
 class Profile extends StatelessWidget {
   final List<PostModel> postDetails = [];
+  UserProfile user = UserProfile(
+      userId: 0,
+      name: "name",
+      username: "username",
+      bio: "bio",
+      links: "links",
+      userProfileImageUrl: "userProfileImageUrl",
+      postsCount: 0,
+      followersCount: 0,
+      followingCount: 0,
+      followingStatus: false);
 
   Profile({super.key});
 
@@ -33,11 +47,10 @@ class Profile extends StatelessWidget {
       child: BlocBuilder<ProfileBloc, ProfileState>(
         builder: (context, state) {
           if (state is LoadingProfileState) {
-            return const Center(
-              child: CircularProgressIndicator(),
-            );
+            return const ProfileShimmer();
           }
           if (state is FetchingProfileState) {
+            user = state.userDetail;
             return Column(
               children: [
                 ProfileSection1(
@@ -47,28 +60,29 @@ class Profile extends StatelessWidget {
                   details: state.userDetail,
                 ),
                 const ProfileButtons(),
-                kHeight30,
+                kHeight15,
                 const Text(
                   'Post',
-                  style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold),
+                  style: TextStyle(fontSize: 30, fontWeight: FontWeight.w500),
                 ),
-                kHeight10,
+                kHeight5,
                 const Divider(
-                  color: Colors.black,
+                  color: Colors.grey,
                   endIndent: 20,
                   indent: 20,
-                  thickness: 5,
+                  thickness: 2,
                 ),
                 kHeight10,
                 BlocBuilder<CreatePostBloc, CreatePostState>(
                   builder: (context, state) {
                     if (state is LoadingState) {
-                      return const CircularProgressIndicator();
+                      return const PostShimmer();
                     }
                     if (state is FetchPostState) {
                       return Expanded(
                         child: Post(
                           post: state.details,
+                          profile: user,
                         ),
                       );
                     }

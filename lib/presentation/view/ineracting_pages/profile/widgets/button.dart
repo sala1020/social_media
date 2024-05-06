@@ -11,7 +11,7 @@ class NormalButton extends StatelessWidget {
     super.key,
     this.onTap,
     required this.buttonName,
-    this.height = 50,
+    this.height = 40,
     this.width = 150,
   });
 
@@ -29,7 +29,7 @@ class NormalButton extends StatelessWidget {
         child: Center(
           child: Text(
             buttonName,
-            style: const TextStyle(color: kWhite, fontSize: 20),
+            style: const TextStyle(color: kWhite, fontSize: 15),
           ),
         ),
       ),

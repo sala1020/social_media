@@ -31,8 +31,8 @@ class PostModel {
       postId: json['postid'] ?? 0,
       likeStatus: json['like_status'] ?? false,
       caption: json['caption'] ?? '',
-      likesCount: json['likes_count'] ?? '',
-      commentsCount: json['comments_count'] ?? '',
+      likesCount: json['likes_count'] ?? '0',
+      commentsCount: json['comments_count'] ?? '0',
       postAge: json['post-age'] ?? '',
       mediaUrls: List<String>.from(json['media-urls'] ?? []),
     );
