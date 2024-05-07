@@ -12,3 +12,9 @@ final class FetchingProfileState extends ProfileState {
 }
 
 final class LoadingProfileState extends ProfileState {}
+
+final class LikedPostState extends ProfileState{
+  final bool isLiked;
+
+  LikedPostState({required this.isLiked});
+}

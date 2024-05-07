@@ -14,9 +14,12 @@ final class SelectImageState extends CreatePostState {
 final class PutPostState extends CreatePostState {}
 
 final class LoadingState extends CreatePostState{}
+final class EmptyListState extends CreatePostState{}
 
 final class FetchPostState extends CreatePostState {
-  final List<PostModel> details;
+  final List<PostModel>? details;
 
   FetchPostState({required this.details});
 }
+
+final class PostDeleteState extends CreatePostState{}

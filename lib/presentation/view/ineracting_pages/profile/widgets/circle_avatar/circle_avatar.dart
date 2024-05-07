@@ -16,7 +16,6 @@ class CircleAvatarWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print(details.postsCount.toString());
     return Stack(
       children: [
         Row(

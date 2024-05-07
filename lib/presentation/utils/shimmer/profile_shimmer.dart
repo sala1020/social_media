@@ -1,9 +1,6 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:shimmer/shimmer.dart';
 import 'package:social_media/presentation/utils/colors/colors.dart';
-import 'package:social_media/presentation/utils/shimmer/post_shimmer.dart';
 import 'package:social_media/presentation/utils/size/heights.dart';
 
 class ProfileShimmer extends StatelessWidget {

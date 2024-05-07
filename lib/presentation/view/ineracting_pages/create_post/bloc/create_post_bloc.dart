@@ -1,3 +1,5 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:image_picker/image_picker.dart';
@@ -18,18 +20,57 @@ class CreatePostBloc extends Bloc<CreatePostEvent, CreatePostState> {
     });
 
     on<PutPostEvent>((event, emit) async {
-      await PostService.uploadPost(
+      final isPosted = await PostService.uploadPost(
           media: event.mediaUrl, caption: event.caption);
-          emit(SelectImageState(imageUrl: ''));
-      emit(LoadingState());
+      if (isPosted) {
+        emit(LoadingState());
+        emit(SelectImageState(imageUrl: ''));
+        Padding(
+          padding: const EdgeInsets.only(bottom: 20),
+          child: snackBarWidget(
+              context: event.context, snackBarContent: 'Seccussfully Posted'),
+        );
+      } else {
+        Padding(
+          padding: const EdgeInsets.only(bottom: 20),
+          child: snackBarWidget(
+              context: event.context, snackBarContent: 'Posting Failed'),
+        );
+      }
     });
     on<FetchPostEvent>((event, emit) async {
       emit(LoadingState());
-      final postDetails = await PostService.getpost();
-
+      final List<PostModel> postDetails = await PostService.getpost();
       if (postDetails.isNotEmpty) {
         emit(FetchPostState(details: postDetails));
+      } else {
+        emit(EmptyListState());
+      }
+    });
+    on<PostDeleteEvent>((event, emit) async {
+      final result = await PostService.postDelete(postID: event.postID);
+      if (result) {
+        final List<PostModel> postDetails = await PostService.getpost();
+        if (postDetails.isNotEmpty) {
+          emit(FetchPostState(details: postDetails));
+        } else {
+          emit(EmptyListState());
+        }
       }
     });
   }
+}
+
+snackBarWidget(
+    {required BuildContext context, required String snackBarContent}) {
+  return ScaffoldMessenger.of(context).showSnackBar(
+    SnackBar(
+      shape: const Border(
+        left: BorderSide(width: BorderSide.strokeAlignCenter),
+      ),
+      backgroundColor: Colors.black,
+      duration: const Duration(milliseconds: 700),
+      content: Text(snackBarContent),
+    ),
+  );
 }

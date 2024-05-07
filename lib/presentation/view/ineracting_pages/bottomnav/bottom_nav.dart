@@ -16,51 +16,47 @@ class BottomNav extends StatelessWidget {
   final pages = [
     const HomePage(),
     const Search(),
-     NewPost(),
+    NewPost(),
     const Conversation(),
-     Profile()
+    Profile()
   ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: ClipRRect(
-        borderRadius: const BorderRadius.only(
-            topLeft: Radius.circular(20), topRight: Radius.circular(20)),
-        child: SizedBox(
-          height: 82,
-          width: double.infinity,
-          child: CurvedNavigationBar(
-            height: 70,
-            buttonBackgroundColor: kBlack,
-            backgroundColor: const Color.fromARGB(208, 0, 0, 0),
-            color: const Color.fromARGB(0, 0, 0, 0),
-            items: const [
-              Icon(
-                Icons.home,
-                color: Colors.white,
-              ),
-              Icon(
-                Icons.search,
-                color: Colors.white,
-              ),
-              Icon(
-                CupertinoIcons.plus,
-                color: Colors.white,
-              ),
-              Icon(
-                Icons.chat,
-                color: Colors.white,
-              ),
-              Icon(
-                Icons.person,
-                color: Colors.white,
-              )
-            ],
-            onTap: (value) {
-              context.read<NavIndex>().updateIndex(value);
-            },
-          ),
+      bottomNavigationBar: SizedBox(
+        height: 82,
+        width: double.infinity,
+        child: CurvedNavigationBar(
+          height: 70,
+          buttonBackgroundColor: const Color.fromARGB(255, 66, 67, 67),
+          backgroundColor: kBlack,
+          color: kBlack,
+          items: const [
+            Icon(
+              Icons.home,
+              color: Colors.white,
+            ),
+            Icon(
+              Icons.search,
+              color: Colors.white,
+            ),
+            Icon(
+              CupertinoIcons.plus,
+              color: Colors.white,
+            ),
+            Icon(
+              Icons.chat,
+              color: Colors.white,
+            ),
+            Icon(
+              Icons.person,
+              color: Colors.white,
+            )
+          ],
+          onTap: (value) {
+            context.read<NavIndex>().updateIndex(value);
+          },
         ),
       ),
       body: BlocBuilder<NavIndex, int>(

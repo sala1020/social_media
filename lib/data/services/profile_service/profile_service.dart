@@ -21,7 +21,6 @@ class ProfileService {
     };
 
     final response = await http.get(Uri.parse(url), headers: profileHeader);
-    print(response.body);
 
     if (response.statusCode == 200) {
       final responseBody = jsonDecode(response.body)['after execution'];

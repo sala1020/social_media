@@ -76,18 +76,29 @@ class Profile extends StatelessWidget {
                 BlocBuilder<CreatePostBloc, CreatePostState>(
                   builder: (context, state) {
                     if (state is LoadingState) {
-                      return const PostShimmer();
+                      return const Expanded(child: PostShimmer());
                     }
                     if (state is FetchPostState) {
                       return Expanded(
                         child: Post(
-                          post: state.details,
+                          post: state.details!,
                           profile: user,
                         ),
                       );
                     }
+                    if (state is EmptyListState) {
+                      return const Expanded(
+                        child: Center(
+                          child: Text(
+                            'Add Some Post',
+                            style: TextStyle(fontWeight: FontWeight.w500),
+                          ),
+                        ),
+                      );
+                    }
+
                     return const Center(
-                      child: Text('Empty'),
+                      child: Expanded(child: Text('Some Error Occurede')),
                     );
                   },
                 )

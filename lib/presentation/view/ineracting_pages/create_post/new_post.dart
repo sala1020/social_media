@@ -8,7 +8,7 @@ import 'package:social_media/presentation/view/ineracting_pages/create_post/widg
 
 class NewPost extends StatelessWidget {
   NewPost({super.key});
-  String? selectedMedia;
+  String selectedMedia = '';
 
   @override
   Widget build(BuildContext context) {
@@ -16,18 +16,18 @@ class NewPost extends StatelessWidget {
       body: Center(
         child: BlocBuilder<CreatePostBloc, CreatePostState>(
           builder: (context, state) {
-            if (state is LoadingState) {
-              return const Center(
-                child: CircularProgressIndicator(),
-              );
-            }
+            // if (state is LoadingState) {
+            //   return const Center(
+            //     child: CircularProgressIndicator(),
+            //   );
+            // }
             if (state is SelectImageState) {
               selectedMedia = state.imageUrl;
             }
-            return selectedMedia == null
+            return selectedMedia.isEmpty
                 ? const BeforeImageSelection()
                 : AfterImageSelection(
-                    selectedMedia: selectedMedia!,
+                    selectedMedia: selectedMedia,
                   );
           },
         ),
